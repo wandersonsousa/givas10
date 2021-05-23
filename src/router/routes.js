@@ -33,6 +33,22 @@ const routes = [
     ]
   },
   {
+    name:'apoie',
+    path: '/apoie',
+    component: () => import('../layouts/MainLayout.vue'),
+    children: [
+      { path: '', component: () => import('../pages/Apoie.vue') }
+    ]
+  },
+  {
+    name:'loja',
+    path: '/loja',
+    component: () => import('../layouts/MainLayout.vue'),
+    children: [
+      { path: '', component: () => import('../pages/Lojinha.vue') }
+    ]
+  },
+  {
     name:'tema',
     path: '/tema',
     component: () => import('../layouts/MainLayout.vue'),
