@@ -1,26 +1,6 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header v-if="!userLoggedIn">
-      <q-toolbar>
-        <q-btn
-          v-if="this.$route.path != '/'"
-          flat
-          dense
-          round
-          icon="arrow_back"
-          aria-label="Menu"
-          @click="$router.replace('/')"
-        />
-        <q-toolbar-title
-          class="text-center"
-          style="position: absolute; left: 50%; transform: translate(-50%, 0)"
-        >
-        GIVAS X
-        </q-toolbar-title>
-      </q-toolbar>
-    </q-header>
-
-    <q-bar elevated v-if="userLoggedIn" class="bg-transparent" style="padding:40px 10px;">
+    <q-bar elevated class="bg-transparent" style="padding: 40px 10px">
       <q-toolbar class="">
         <!-- <q-btn
           flat
@@ -30,11 +10,13 @@
           aria-label="Menu"
           @click="leftDrawerOpen = !leftDrawerOpen"
         /> -->
-        <q-toolbar-title class="text-center text-white text-bold header_title"> GIVAS X </q-toolbar-title>
+        <q-toolbar-title class="text-center text-white text-bold header_title">
+          GIVAS X
+        </q-toolbar-title>
         <!-- <div>Instituto Biodivercidade</div> -->
       </q-toolbar>
     </q-bar>
-<!-- 
+    <!-- 
     <q-drawer
       v-model="leftDrawerOpen"
       show-if-above
@@ -55,7 +37,7 @@
     </q-drawer> -->
 
     <q-page-container>
-      <router-view />
+      <router-view :key="$route.path" />
     </q-page-container>
 
     <q-footer elevated class="footer_bar text-white" v-if="userLoggedIn">
@@ -83,6 +65,7 @@
 
 <script>
 import EssentialLink from "components/EssentialLink.vue";
+import router from "src/router";
 
 const linksData = [
   {
@@ -109,15 +92,23 @@ export default {
       userLoggedIn: true,
     };
   },
-  beforeMount() {
-    let routePath = this.$router.history.current.path;
-    if (
-      routePath == "/cadastro" ||
-      routePath == "/login" ||
-      routePath == "/"
-    ) {
-      this.userLoggedIn = false;
-    }
+  watch: {
+    $route: {
+      handler(newRoute) {
+        console.log(newRoute);
+        if (
+          newRoute.path == "/cadastro" ||
+          newRoute.path == "/login" ||
+          newRoute.path == "/"
+        ) {
+          this.userLoggedIn = false;
+        } else {
+          this.userLoggedIn = true;
+        }
+      },
+      immediate: true,
+      deep: true,
+    },
   },
   methods: {
     hello: () => {
@@ -129,12 +120,12 @@ export default {
 </script>
 
 <style scoped>
-.header_title{
-  font-family: 'digitalfont';
+.header_title {
+  font-family: "digitalfont";
   letter-spacing: 0.4em;
   font-size: 2em;
 }
 .footer_bar {
-  background-color: #380A3B;
+  background-color: #380a3b;
 }
 </style>

@@ -4,9 +4,17 @@
       <h2>GIVAS X</h2>
     </div>
 
-    <div class="buttons-container flex justify-center">
-      <q-btn :size="'lg'" class="bg-red text-white signup-btn" @click="$router.push('/cadastro')">Cadastrar</q-btn>
-      <q-btn :size="'lg'" class="bg-red text-white signup-btn" @click="$router.push('/login')"
+    <div class="buttons-container flex justify-around">
+      <q-btn
+        size="lg"
+        class="bg-red text-white signup-btn"
+        @click="$router.push('/cadastro')"
+        >Cadastrar</q-btn
+      >
+      <q-btn
+        size="lg"
+        class="bg-red text-white signup-btn"
+        @click="$router.push('/login')"
         >Já tenho cadastro</q-btn
       >
     </div>
@@ -18,26 +26,21 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
   width: 100%;
-  min-height: 500px;
   color: white;
+  margin:0 !important;
 }
 
 h2 {
   font-family: "digitalfont", Georgia, "Times New Roman", Times, serif !important;
   letter-spacing: 0.1em;
 }
-
 .signup-btn {
   border-radius: 20px;
   margin-top: 10px;
@@ -55,11 +58,5 @@ h2 {
   opacity: 0.9 !important;
 }
 
-.buttons-container {
-  margin-top: 35%;
-}
-.title {
-  margin-top: 15%;
-}
 </style>
  

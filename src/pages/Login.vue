@@ -49,7 +49,7 @@ export default {
           message: "Logado",
         });
       } catch (error) {
-        return this.$router.replace('/home');
+        this.$router.push('/home');
       }
     },
   },
