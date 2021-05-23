@@ -1,26 +1,113 @@
 <template>
-  <q-page class="flex flex-center">
-    <div style="min-width: 100%">
-      <h4 class="text-center text-blue">Etapas</h4>
-      <q-list bordered v-for="etapa in etapas" :key="etapa.id">
-        <q-item clickable v-ripple class="stage_item q-py-md q-mb-0">
-          <q-item-section thumbnail>
-            <img
-              :src="etapa.imgUrl"
-              spinner-color="white"
-              class="q-ml-md"
-              style="height: 100px; max-width: 110px"
-            />
-          </q-item-section>
-          <q-item-section class="text-center">
-            <h6>{{ etapa.nome }}</h6></q-item-section
+  <q-page class="flex flex-center bg-white">
+    <div style="min-width: 100%" class="text-black">
+      <div>
+        <div
+          rounded
+          class="flex justify-around items-center profile_bar q-mb-lg"
+        >
+          <div
+            style="width: 70%; padding: 0 0"
+            class="flex justify-between items-center profile_data"
           >
-        </q-item>
-      </q-list>
+            <div>João Costa</div>
+            <div class="flex row items-center" style="font-size: 20px">
+              <q-icon
+                name="monetization_on"
+                class="text-orange"
+                style="margin-right: 5px"
+                size="md"
+              ></q-icon>
+              <span style="font-family: Arial; font-weight: bold"> 20 </span>
+            </div>
+          </div>
+
+          <q-avatar>
+            <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
+          </q-avatar>
+        </div>
+      </div>
+      <div>
+        <q-list
+          bordered
+          v-for="etapa in etapas"
+          :key="etapa.id"
+          class="flex flex-center align-center"
+          style="border: none; min-width: 100%"
+        >
+          <q-item
+            v-bind:class="{ inactive: !etapa.done }"
+            clickable
+            v-ripple
+            class="stage_item q-mb-sm q-py-md column"
+          >
+            <div class="flex">
+              <q-item-section thumbnail>
+                <img
+                  :src="etapa.imgUrl"
+                  spinner-color="white"
+                  class="q-ml-md"
+                  style="height: 100px; max-width: 110px"
+                />
+              </q-item-section>
+              <q-item-section class="text-center">
+                <div class="flex flex-center column">
+                  <h6 style="padding: 0 !important; margin: 0">
+                    {{ etapa.nome }}
+                  </h6>
+                  <p>{{ etapa.description }}</p>
+
+                  <div class="flex full-width items-center justify-center">
+                    <div
+                      style="width: 50%; height: 100%"
+                      class="flex flex-center items-center justify-center"
+                    >
+                      <q-linear-progress
+                        rounded
+                        size="15px"
+                        :value="0.5"
+                        color="secondary"
+                      />
+                    </div>
+
+                    <div
+                      style="width: 40%; height: 100%"
+                      class="flex-flex-center items-center justify-center etapa_badges"
+                    >
+                      48 minutos restantes
+                    </div>
+
+                    <div
+                      style="width: 40%; height: 100%"
+                      class="flex-flex-center items-center justify-center etapa_badges"
+                      v-if="false"
+                    >
+                      Nota: 10
+                      <div>Completo</div>
+                    </div>
+                  </div>
+                </div>
+              </q-item-section>
+            </div>
+
+            <div
+              class="q-py-sm text-white full-width text-center row flex-end justify-around fase_b_item"
+            >
+              <div>FASE BÔNUS</div>
+              <div>
+                <q-icon
+                  name="star"
+                  size="sm"
+                  :color="etapa.done ? 'yellow' : ''"
+                ></q-icon>
+              </div>
+            </div>
+          </q-item>
+        </q-list>
+      </div>
     </div>
   </q-page>
 </template>
-
 <script>
 export default {
   data() {
@@ -28,28 +115,31 @@ export default {
       etapas: [
         {
           id: 0,
-          nome: "Etapa 1",
-          imgUrl: "https://cdn.quasar.dev/img/mountains.jpg",
+          nome: "FASE 1",
+          description:
+            "Estruturando um Plano de Comunicação e Estratégica Voltada para OSCs",
+          done: true,
+          imgUrl: "https://i.ibb.co/jWbqbDv/rocket-removebg-preview.png",
         },
         {
           id: 1,
-          nome: "Etapa 2",
-          imgUrl: "https://cdn.quasar.dev/img/mountains.jpg",
+          nome: "FASE BÔNUS",
+          imgUrl: "https://i.ibb.co/jWbqbDv/rocket-removebg-preview.png",
         },
         {
           id: 2,
-          nome: "Etapa 3",
-          imgUrl: "https://cdn.quasar.dev/img/mountains.jpg",
+          nome: "FASE BÔNUS",
+          imgUrl: "https://i.ibb.co/jWbqbDv/rocket-removebg-preview.png",
         },
         {
           id: 3,
-          nome: "Etapa 4",
-          imgUrl: "https://cdn.quasar.dev/img/mountains.jpg",
+          nome: "FASE BÔNUS",
+          imgUrl: "https://i.ibb.co/jWbqbDv/rocket-removebg-preview.png",
         },
         {
           id: 4,
-          nome: "Etapa 5",
-          imgUrl: "https://cdn.quasar.dev/img/mountains.jpg",
+          nome: "FASE BÔNUS",
+          imgUrl: "https://i.ibb.co/jWbqbDv/rocket-removebg-preview.png",
         },
       ],
     };
@@ -59,10 +149,41 @@ export default {
 
 <style scoped>
 .q-item {
-  width: 100%;
-  height: 120px;
+  width: 96%;
+  height: auto;
   border: none;
-  margin: 0;
+  border-radius: 2%;
+  background-image: linear-gradient(#eaeaea, #ffffff) !important;
+}
+.inactive {
+  background-color: #969696 !important;
+  opacity: 45%;
+}
+.inactive > * {
+  background-color: #969696 !important;
+  opacity: 50%;
+}
+.inactive img {
+  opacity: 10%;
+}
+.profile_bar {
+  padding: 15px 0px !important;
+  background-color: #ffffff !important;
+  color: #380a3b !important;
+  font-weight: bold;
+  font-size: 1.3em;
+}
+.profile_data {
+  padding-bottom: 3px !important;
+  border-bottom: 0.4px solid purple;
+}
+.fase_b_item {
+  padding: 5px 0;
+  background: #380a3b;
+}
+.etapa_badges {
+  font-size: 0.8em !important;
+  font-weight: 350;
 }
 </style>
 
