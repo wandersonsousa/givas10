@@ -17,6 +17,8 @@
         </div>
         <div class="currency_stats">
           <div class="flex row items-center" style="font-size: 18px">
+            <q-icon name="headphones" size="lg" color="orange" class="q-mr-md">
+            </q-icon>
             <q-icon
               name="monetization_on"
               class="text-orange"
@@ -165,7 +167,10 @@ export default {
   },
   mounted() {
     if (sessionStorage.getItem("concluiu_primeira_etapa")) {
-      this.concluiu_primeira_fase = true;
+      if(!sessionStorage.getItem('ja_mostrou_alerta')){
+        this.concluiu_primeira_fase = true;
+        sessionStorage.setItem('ja_mostrou_alerta', true);
+      }
     }
   },
 };

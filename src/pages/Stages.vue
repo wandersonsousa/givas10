@@ -36,10 +36,10 @@
           style="border: none; min-width: 100%"
         >
           <q-item
-            v-bind:class="{ inactive: !etapa.done }"
+            v-bind:class="{ inactive: !etapa.active }"
             clickable
             v-ripple
-            @click="etapa.done ? $router.push('/etapa') : null"
+            @click="etapa.active && !etapa.noClickable ? $router.push('/etapa') : null"
             class="stage_item q-mb-sm q-py-md column"
           >
             <div class="flex">
@@ -66,7 +66,7 @@
                       <q-linear-progress
                         rounded
                         size="15px"
-                        :value="0.5"
+                        :value="etapa.progress"
                         color="secondary"
                       />
                     </div>
@@ -75,17 +75,9 @@
                       style="width: 40%; height: 100%"
                       class="flex-flex-center items-center justify-center etapa_badges"
                     >
-                      48 minutos restantes
+                      {{etapa.timeLabel}}
                     </div>
 
-                    <div
-                      style="width: 40%; height: 100%"
-                      class="flex-flex-center items-center justify-center etapa_badges"
-                      v-if="false"
-                    >
-                      Nota: 10
-                      <div>Completo</div>
-                    </div>
                   </div>
                 </div>
               </q-item-section>
@@ -99,7 +91,7 @@
                 <q-icon
                   name="star"
                   size="sm"
-                  :color="etapa.done ? 'yellow' : ''"
+                  :color="etapa.active ? 'yellow' : ''"
                 ></q-icon>
               </div>
             </div>
@@ -113,14 +105,17 @@
 export default {
   data() {
     return {
+      concluiu_primeira: false,
       etapas: [
         {
           id: 0,
           nome: "FASE 1",
           description:
             "Estruturando um Plano de Comunicação e Estratégica Voltada para OSCs",
-          done: true,
+          active: true,
+          progress: 0.5,
           imgUrl: "https://i.ibb.co/jWbqbDv/rocket-removebg-preview.png",
+          timeLabel: '45 minutos restantes'
         },
         {
           id: 1,
@@ -146,7 +141,22 @@ export default {
     };
   },
   mounted(){
-    sessionStorage.clear()
+    this.concluiu_primeira = sessionStorage.getItem('concluiu_primeira_etapa')||false;
+    if(this.concluiu_primeira){
+      this.etapas[1] = {
+          id: 1,
+          nome: "FASE 2",
+          description:
+            "Estruturando um Plano de Comunicação e Estratégica Voltada para OSCs",
+          active: true,
+          progress: 0,
+          imgUrl: "https://i.ibb.co/jWbqbDv/rocket-removebg-preview.png",
+          timeLabel: '50 minutos restantes',
+          noClickable:true
+        };
+      this.etapas[0].progress = 1;
+      this.etapas[0].timeLabel = 'completo';
+    }
   }
 };
 </script>

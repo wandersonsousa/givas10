@@ -25,6 +25,14 @@ const routes = [
     ]
   },
   {
+    name:'bonus',
+    path: '/bonus',
+    component: () => import('../layouts/MainLayout.vue'),
+    children: [
+      { path: '', component: () => import('../pages/Fase_Bonus.vue') }
+    ]
+  },
+  {
     name:'tema',
     path: '/tema',
     component: () => import('../layouts/MainLayout.vue'),
