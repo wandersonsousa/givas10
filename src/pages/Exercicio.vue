@@ -2,12 +2,11 @@
   <q-page class="flex flex-center bg-white">
     <div class="flex row full-width">
       <q-linear-progress
-        dark
         stripe
         rounded
         size="20px"
         :value="progress"
-        color="positive"
+        color="warning"
         class="q-mt-sm"
         style=""
       >
@@ -18,12 +17,12 @@
     </div>
     <div class="full-width">
       <q-card
-        class="bg-positive text-white border-none no-border"
+        class="text-white border-none no-border"
         v-for="questao in questoes.slice(a, b)"
         :key="questao.id"
       >
-        <q-card-section>
-          <div class="text-h6 text-center">
+        <q-card-section class="">
+          <div class="text-h6 text-center text-black">
             {{ questao.title }}
           </div>
         </q-card-section>
@@ -38,7 +37,8 @@
               alternativa_correta: alternativa.correct,
               alternativa_errada: !alternativa.correct,
             }"
-            class="full-width q-pa-lg bg-accent q-ma-sm btn-quiz"
+            class="full-width q-pa-lg q-ma-sm btn-quiz"
+            style="background-color:#580940;"
             v-for="alternativa in questao.alternativas"
             :key="alternativa.id"
             >{{ alternativa.valor }}</q-btn
@@ -58,47 +58,38 @@ export default {
       progress: 0,
       maxQuestao: 1,
       respondidas: 0,
+      score:0,
       questoes: [
         {
           id: 0,
           respondida: false,
-          title: "Qual o primeiro presidente do Brasil ?",
+          title: "O primeiro passo para estruturar um plano estratégico de comunicação é a imersão de informações.",
           alternativas: [
             {
               id: 0,
-              valor: "Cristovão Colombo",
-              correct: false,
-            },
-            {
-              id: 1,
-              valor: "Putin",
+              valor: "Verdadeiro",
               correct: true,
             },
             {
-              id: 2,
-              valor: "Maduro",
+              id: 1,
+              valor: "Falso",
               correct: false,
-            },
+            }
           ],
         },
         {
           id: 1,
-          title: "Qual maior estado do Brasil ?",
+          title: "Qual destas afirmações está sendo aplicada corretamente?",
           respondida: false,
           alternativas: [
             {
               id: 0,
-              valor: "São Paulo",
+              valor: "A Análise Ambiental levanta informações internas e externas da OSC.",
               correct: false,
             },
             {
               id: 1,
-              valor: "Rio de Janeiro",
-              correct: false,
-            },
-            {
-              id: 2,
-              valor: "Piauí",
+              valor: "A Análise F.O.F.A. levanta informações sobre a situação interna e externa da OSC.",
               correct: true,
             },
           ],
@@ -122,6 +113,7 @@ export default {
       ++this.respondidas;
       this.progress = this.respondidas/ this.questoes.length;
       if (this.a == this.maxQuestao) {
+        sessionStorage.setItem('concluiu_primeira_etapa', true);
         return setTimeout(() => this.$router.push("/perfil"), 500);
       }
       setTimeout(() => {

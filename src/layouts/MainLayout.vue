@@ -1,21 +1,18 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-bar elevated class="bg-transparent" style="padding: 40px 10px">
-      <q-toolbar class="">
-        <!-- <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="leftDrawerOpen = !leftDrawerOpen"
-        /> -->
-        <q-toolbar-title class="text-center text-white text-bold header_title">
-          GIVAS X
-        </q-toolbar-title>
-        <!-- <div>Instituto Biodivercidade</div> -->
+    <q-header elevated fixed>
+      <q-toolbar class="bg-transparent text-white header_title">
+        <div
+          v-if="!userLoggedIn && !itsStartPage"
+          @click="$router.replace('/')"
+        >
+          <q-icon size="sm" name="arrow_back" color="white"></q-icon>
+        </div>
+
+        <q-toolbar-title class="text-center"> GIVAS X </q-toolbar-title>
       </q-toolbar>
-    </q-bar>
+    </q-header>
+
     <!-- 
     <q-drawer
       v-model="leftDrawerOpen"
@@ -90,6 +87,8 @@ export default {
       leftDrawerOpen: false,
       essentialLinks: linksData,
       userLoggedIn: true,
+      arrowPath: null,
+      itsStartPage: false,
     };
   },
   watch: {
@@ -102,6 +101,10 @@ export default {
           newRoute.path == "/"
         ) {
           this.userLoggedIn = false;
+          this.itsStartPage = false;
+          if (newRoute.path == "/") {
+            this.itsStartPage = true;
+          }
         } else {
           this.userLoggedIn = true;
         }

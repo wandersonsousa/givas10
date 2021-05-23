@@ -17,6 +17,22 @@ const routes = [
     ]
   },
   {
+    name:'etapa',
+    path: '/etapa',
+    component: () => import('../layouts/MainLayout.vue'),
+    children: [
+      { path: '', component: () => import('../pages/Stage.vue') }
+    ]
+  },
+  {
+    name:'tema',
+    path: '/tema',
+    component: () => import('../layouts/MainLayout.vue'),
+    children: [
+      { path: '', component: () => import('../pages/Tema.vue') }
+    ]
+  },
+  {
     name:'login',
     path: '/login',
     component: () => import('../layouts/MainLayout.vue'),

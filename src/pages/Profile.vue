@@ -27,9 +27,25 @@
           </div>
           <div>
             <q-icon name="edit" size="sm" class="q-mt-sm"> </q-icon>
+            <q-icon
+              name="logout"
+              size="sm"
+              class="q-mt-sm q-ml-sm"
+              @click="$router.replace('/')"
+            >
+            </q-icon>
           </div>
         </div>
       </div>
+    </div>
+
+    <div
+      class="text-h6 text-center text-white q-my-lg bg-info congrats"
+  
+      v-if="concluiu_primeira_fase"
+    >
+      Parabéns, a segunda fase foi desbloqueada !
+      <q-icon color="white" size="sm" name="self_improvement"></q-icon>
     </div>
 
     <div class="performace q-pa-lg">
@@ -116,7 +132,7 @@
           </q-avatar>
           <p>FASE 2</p>
         </div>
-         <div class="friend text-center">
+        <div class="friend text-center">
           <q-avatar size="70px">
             <img src="../assets/img/woman (1).jpg" />
           </q-avatar>
@@ -124,7 +140,7 @@
         </div>
         <div class="friend text-center">
           <q-avatar size="70px">
-           <img src="../assets/img/man_resize.jpg" />
+            <img src="../assets/img/man_resize.jpg" />
           </q-avatar>
           <p>FASE 5</p>
         </div>
@@ -144,7 +160,13 @@ export default {
       earth_progress: 0.6,
       know_progress: 0.4,
       shine_progress: 0.6,
+      concluiu_primeira_fase: false,
     };
+  },
+  mounted() {
+    if (sessionStorage.getItem("concluiu_primeira_etapa")) {
+      this.concluiu_primeira_fase = true;
+    }
   },
 };
 </script>
@@ -180,5 +202,8 @@ export default {
 }
 .profile_info .desc .ong_name {
   color: #594e5a;
+}
+.congrats{
+  border-radius: 15px;
 }
 </style>

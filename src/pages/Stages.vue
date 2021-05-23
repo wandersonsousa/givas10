@@ -22,7 +22,7 @@
             </div>
           </div>
 
-          <q-avatar>
+          <q-avatar @click="$router.push('/perfil')">
             <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
           </q-avatar>
         </div>
@@ -39,6 +39,7 @@
             v-bind:class="{ inactive: !etapa.done }"
             clickable
             v-ripple
+            @click="etapa.done ? $router.push('/etapa') : null"
             class="stage_item q-mb-sm q-py-md column"
           >
             <div class="flex">
@@ -144,6 +145,9 @@ export default {
       ],
     };
   },
+  mounted(){
+    sessionStorage.clear()
+  }
 };
 </script>
 
