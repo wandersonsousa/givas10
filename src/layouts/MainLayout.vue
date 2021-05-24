@@ -9,7 +9,7 @@
           <q-icon size="sm" name="arrow_back" color="white"></q-icon>
         </div>
 
-        <q-toolbar-title class="text-center"> GIVAS X </q-toolbar-title>
+        <q-toolbar-title class="text-center" @click="$router.push('/home')"> GIVAS X </q-toolbar-title>
       </q-toolbar>
     </q-header>
 
@@ -50,7 +50,7 @@
             <div @click="$router.push('/perfil')">
               <q-icon name="account_circle" class="cursor-pointer" />
             </div>
-            <div @click="hello()">
+            <div @click="$router.push('/apoie')">
               <q-icon name="paid" class="cursor-pointer" />
             </div>
           </div>
