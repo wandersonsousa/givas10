@@ -81,7 +81,7 @@
     </div>
 
     <div class="apoie_items">
-        <div class="loja apoie_item">
+        <div class="loja apoie_item" @click="$router.push('/loja')">
           <div class="item_img">
             <q-img
               src="../assets/img/balao.png"

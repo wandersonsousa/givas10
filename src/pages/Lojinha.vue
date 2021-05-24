@@ -38,14 +38,89 @@
         </div>
       </div>
     </div>
+
+    <div>
+      <div class="full-width flex text-center items-center justify-center" style="background-color: #580940; color: #fff">
+        <h5
+          class="text-center lojinha_title"
+        >
+          LOJINHA
+        </h5>
+        <q-icon name="store" size="sm" color="white"/>
+      </div>
+
+      <div class="products_grid row justify-around">
+        <div class="col-6 product text-center">
+          <q-img
+            src="../assets/img/xicara.jpeg"
+            spinner-color="white"
+            style="height: 140px; max-width: 150px"
+          />
+          <div class="product_details text-center">
+            <h6 class="product_title">Caneca</h6>
+            <p>R$29,00</p>
+          </div>
+        </div>
+
+        <div class="col-6 product text-center">
+          <q-img
+            src="../assets/img/givas_tshirt.jpeg"
+            spinner-color="white"
+            style="height: 140px; max-width: 150px"
+          />
+          <div class="product_details text-center">
+            <h6 class="product_title">Moleton</h6>
+            <p>R$45,00</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="products_grid row justify-around">
+        <div class="col-6 product text-center">
+          <q-img
+            src="../assets/img/agenda.jpeg"
+            spinner-color="white"
+            style="height: 140px; max-width: 150px"
+          />
+          <div class="product_details text-center">
+            <h6 class="product_title">Agenda</h6>
+            <p>R$20,00</p>
+          </div>
+        </div>
+
+        <div class="col-6 product text-center">
+          <q-img
+            src="../assets/img/givas_tshirt.jpeg"
+            spinner-color="white"
+            style="height: 140px; max-width: 150px"
+          />
+          <div class="product_details text-center">
+            <h6 class="product_title">Caneca</h6>
+            <p>R$25,00</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </q-page>
 </template>
 
 <script>
-export default {
-    
-};
+export default {};
 </script>
 
 <style>
+.product_title {
+  margin: 0;
+}
+.product_details h6,
+p {
+  font-weight: 300;
+}
+.lojinha_title {
+  padding: 10px;
+  margin: 0;
+}
+p {
+  margin: 0;
+}
 </style>
