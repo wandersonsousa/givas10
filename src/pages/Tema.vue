@@ -52,11 +52,13 @@
       <!--  -->
       <!-- tema_content -->
       <div class="tema_content q-pb-sm">
-        <q-video
-          class="q-mb-md"
-          :ratio="16 / 9"
-          src="https://www.youtube.com/embed/ThiCMd5kGbE?rel=0"
-        />
+          <div class="flex flex-center">
+          <q-video
+            class="q-mb-md"
+            src="https://www.youtube.com/embed/ThiCMd5kGbE?rel=0"
+            style="width:80%;"
+          />
+        </div>
         <p class="content_title text-subtitle1 q-px-sm">
           Checklist de técnicas fundamentais que compõem o Plano de Comunicação
           Estratégica:

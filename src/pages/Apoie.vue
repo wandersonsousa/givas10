@@ -92,7 +92,7 @@
           <h6>LOJINHA</h6>
       </div>
       <div class="apoia apoie_item">
-        <div class="item_img">
+        <div class="item_img" @click="$router.push('apoiase')">
           <q-img
             src="../assets/img/base_lunar.png"
             spinner-color="white"

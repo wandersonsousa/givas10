@@ -33,6 +33,14 @@ const routes = [
     ]
   },
   {
+    name:'apoiase',
+    path: '/apoiase',
+    component: () => import('../layouts/MainLayout.vue'),
+    children: [
+      { path: '', component: () => import('../pages/Apoiase.vue') }
+    ]
+  },
+  {
     name:'apoie',
     path: '/apoie',
     component: () => import('../layouts/MainLayout.vue'),
