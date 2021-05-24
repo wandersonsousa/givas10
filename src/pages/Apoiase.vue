@@ -39,7 +39,7 @@
       </div>
     </div>
 
-    <div class="carroussel">
+    <!-- <div class="carroussel">
       <q-carousel
         v-model="slide"
         transition-prev="scale"
@@ -78,18 +78,48 @@
           </div>
         </q-carousel-slide>
       </q-carousel>
-    </div>
+    </div> -->
 
-    <div class="apoie_items">
-        <div class="loja apoie_item" @click="$router.push('/loja')">
-          <div class="item_img">
-            <q-img
-              src="../assets/img/balao.png"
-              spinner-color="white"
-              style="height: 140px; max-width: 150px"
-            />
-          </div>
-          <h6>LOJINHA</h6>
+    <div class="apoiase_main">
+      <div class="apoiase_title">
+        <h5>APOIA-SE</h5>
+        <div class="title_img">
+          <q-img
+            src="../assets/img/anuncie.png"
+            spinner-color="white"
+          />
+        </div>  
+      </div>
+      <div class="apoiase_subtitle">
+        <h6>CAMPANHA TURBINADA</h6>
+      </div>
+      <div class="apoiase_description">
+        <h6>FUNCIONA ASSIM: </h6>
+        <p>Campanha 2 em 1.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, amet. Earum ab doloribus vitae perferendis culpa aliquid.</p>
+      </div>
+      <div class="apoiase_btn">
+        <q-btn 
+        class="bg-secondary" 
+        color="#ffffff" 
+        border-radius="10px"
+        style="border-radius: 16px;">
+          Apoiar com R$1 ou +
+        </q-btn>
+      </div>
+    </div>
+    
+
+    <!-- <div class="apoie_items">
+      <div class="loja apoie_item">
+        <div class="item_img">
+          <q-img
+            src="../assets/img/balao.png"
+            spinner-color="white"
+            style="height: 140px; max-width: 150px"
+          />
+        </div>
+        <h6>LOJINHA</h6>
       </div>
       <div class="apoia apoie_item">
         <div class="item_img">
@@ -121,7 +151,7 @@
         </div>
         <h6>COMPARTILHE</h6>
       </div>
-    </div>
+    </div> -->
   </q-page>
 </template>
 
@@ -138,29 +168,59 @@
 </script>
 
 <style>
-  .apoie_items {
+  .apoiase_main {
     width: 100%;
     display: inline-block;
     position: relative;
-    text-align: center;
     padding-top: 15px;
   }
-  .apoie_item {
-      display: inherit;
-      position: inherit;
-      width: 40%;
-      background: #580940;
-      color: #ffffff;
-      margin: 4px 8px;
-      border-radius: 4px;
-  }
-  .apoie_item h6 {
-      margin: 0;
-  }
-  .item_img {
+  .apoiase_title {
     width: 100%;
+    display: inline-flex;
     position: inherit;
-    display: inherit;
-    padding-top: 8px;
+    background: #580940;
+    color: #ffffff;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .apoiase_title h5 {
+    margin: auto 24px;
+    width: 80%;
+  }
+  .title_img {
+    width: 50px;
+    height: 50px;
+    margin: 8px 16px;
+  }
+  .apoiase_subtitle {
+    padding: 16px 0 8px 0;
+  }
+  .apoiase_subtitle h6 {
+    color: #580940;
+    margin: auto 24px;
+  }
+  .apoiase_description {
+    padding: 16px 0 8px 0;
+  }
+  .apoiase_description h6 {
+    color: #580940;
+    margin: auto 24px;
+  }
+  .apoiase_description p {
+    color: #580940;
+    margin: auto 24px;
+    padding: 8px 0 4px 0;
+  }
+  .apoiase_btn {
+    width: 100%;
+    display: inline-flex;
+    position: inherit;
+    flex-direction: row;
+    align-content: center;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 24px;
   }
 </style>
