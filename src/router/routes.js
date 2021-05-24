@@ -88,6 +88,14 @@ const routes = [
       { path: '', component: () => import('../pages/Exercicio.vue') }
     ]
   },
+  {
+    name:'apoiase',
+    path: '/apoiase',
+    component: () => import('../layouts/MainLayout.vue'),
+    children: [
+      { path: '', component: () => import('../pages/Apoiase.vue') }
+    ]
+  },
   // Always leave this as last one,
   // but you can also remove it
   {
