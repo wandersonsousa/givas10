@@ -32,7 +32,7 @@
             </div>
           </div>
 
-          <q-avatar>
+          <q-avatar style="padding:5px;">
             <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
           </q-avatar>
         </div>
@@ -81,51 +81,86 @@
     </div>
 
     <div class="apoie_items">
-      <div>
         <div class="loja apoie_item">
-          <h5>LOJINHA</h5>
           <div class="item_img">
             <q-img
-              src="../assets/img/balao.jpeg"
+              src="../assets/img/balao.png"
               spinner-color="white"
               style="height: 140px; max-width: 150px"
             />
           </div>
+          <h6>LOJINHA</h6>
         </div>
         <div class="apoia apoie_item">
-          <h5>APOIA-SE</h5>
+          <div class="item_img">
+            <q-img
+              src="../assets/img/base_lunar.png"
+              spinner-color="white"
+              style="height: 140px; max-width: 150px"
+            />
+          </div>
+          <h6>APOIA-SE</h6>
         </div>
-      </div>
-      <div>
         <div class="anuncie apoie_item">
-          <h5>ANUNCIE</h5>
+          <div class="item_img">
+            <q-img
+              src="../assets/img/anuncie.png"
+              spinner-color="white"
+              style="height: 140px; max-width: 150px"
+            />
+          </div>
+          <h6>ANUNCIE</h6>
         </div>
         <div class="compartilhe apoie_item">
-          <h5>COMPARTILHE</h5>
+          <div class="item_img">
+            <q-img
+              src="../assets/img/compartilhe.png"
+              spinner-color="white"
+              style="height: 140px; max-width: 150px"
+            />
+          </div>
+          <h6>COMPARTILHE</h6>
         </div>
-      </div>
     </div>
   </q-page>
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      slide: "style",
-      lorem:
-        " Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, amet. Earum ab doloribus vitae perferendis culpa aliquid. Odit, tempore sed libero laborum quidem voluptatem officiis eius sequi consectetur sint porro!",
-    };
-  },
-};
+  export default {
+    data() {
+      return {
+        slide: "style",
+        lorem:
+          " Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, amet. Earum ab doloribus vitae perferendis culpa aliquid. Odit, tempore sed libero laborum quidem voluptatem officiis eius sequi consectetur sint porro!",
+      };
+    },
+  };
 </script>
 
 <style>
-.apoie_item {
-    display: flex;
-    flex-direction: column;
-}
-.apoie_item h5 {
-    margin:10px 0 !important;
-}
+  .apoie_items {
+    width: 100%;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    padding-top: 15px;
+  }
+  .apoie_item {
+      display: inherit;
+      position: inherit;
+      width: 40%;
+      background: #580940;
+      color: #ffffff;
+      margin: 8px;
+      border-radius: 4px;
+  }
+  .apoie_item h6 {
+      margin: 0;
+  }
+  .item_img {
+    width: 100%;
+    position: inherit;
+    display: inherit;
+    padding-top: 8px;
+  }
 </style>
